@@ -1117,7 +1117,7 @@
               <div class="countdown-label" data-i18n="hours">Hours</div>
             </article>
           </div>
-          <p class="countdown-note" id="countdownMessage" style="text-align:center;">24</p>
+          <p class="countdown-note" id="countdownMessage" style="text-align:center;"></p>
         </div>
       </section>
 
@@ -1390,23 +1390,23 @@
       monthsEl.textContent = String(months).padStart(2, '0');
       daysEl.textContent = String(days).padStart(2, '0');
       hoursEl.textContent = String(hours).padStart(2, '0');
-      countdownMessage.textContent = done
-        ? (currentLanguage === 'ta' ? 'திருமண நாள் வந்துவிட்டது — உங்கள் உண்மையான தேதியை புதுப்பிக்கவும்.' : 'The wedding day has arrived — update the date for your event.')
-        : (currentLanguage === 'ta' ? 'உங்கள் உண்மையான திருமண தேதியை script-இல் மாற்றவும்.' : 'Replace the sample wedding date in the script with your actual wedding day.');
+      // countdownMessage.textContent = done
+      //   ? (currentLanguage === 'ta' ? 'திருமண நாள் வந்துவிட்டது — உங்கள் உண்மையான தேதியை புதுப்பிக்கவும்.' : 'The wedding day has arrived — update the date for your event.')
+      //   : (currentLanguage === 'ta' ? 'உங்கள் உண்மையான திருமண தேதியை script-இல் மாற்றவும்.' : 'Replace the sample wedding date in the script with your actual wedding day.');
     }
     updateCountdown();
     setInterval(updateCountdown, 60 * 1000);
 
     const scheduleEvents = [
       {
-        date: '14 Feb 2027 · 10:30 AM',
+        date: 'N Sep 2026 · 10:30 AM',
         title: 'Wedding Ceremony',
         description: 'Traditional ceremony with family blessings and sacred vows.',
         taTitle: 'திருமண நிகழ்வு',
         taDescription: 'குடும்ப ஆசீர்வாதங்களும் திருமண சடங்குகளும் நடைபெறும் நேரம்.'
       },
       {
-        date: '14 Feb 2027 · 06:30 PM',
+        date: 'N Sep 2026 · 06:30 PM',
         title: 'Reception',
         description: 'Dinner, music, celebration, and heartfelt moments with guests.',
         taTitle: 'வரவேற்பு',
