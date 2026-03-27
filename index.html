@@ -1055,7 +1055,7 @@
           <div class="hero-card js-reveal is-visible">
             <div class="hero-date" data-i18n="heroDate">Saturday · 14 February 2027</div>
             <h2><i>Gayatri &amp; Gokul</i></h2>
-            <p data-i18n="heroCopy">Together with our families, we warmly invite you to celebrate their wedding and share in a day filled with love, blessings, joy, and memorable moments.</p>
+            <p data-i18n="heroCopy">Together with their families, they warmly invite you to celebrate their wedding and share in a day filled with love, blessings, joy, and memorable moments.</p>
             <a class="hero-scroll" href="#story" data-i18n="heroScroll">Scroll to begin</a>
           </div>
         </div>
@@ -1066,6 +1066,7 @@
           <div class="fade-in">
             <div class="eyebrow" data-i18n="invEyebrow">Invitation note</div>
             <h2 class="section-title" data-i18n="invTitle">A heartfelt invitation for dear friends and family</h2>
+            <p class="section-copy" data-i18n="invCopy">Use this section to add your personal invitation message, family names, a short story, dress code note, RSVP instruction, or any meaningful line you want your guests to read before the event details.</p>
           </div>
           <div class="scroll-card reveal-up">
             <div class="scroll-paper">
@@ -1083,6 +1084,7 @@
           <div class="fade-in" style="text-align:center;">
             <div class="eyebrow" style="justify-content:center;" data-i18n="countEyebrow">Countdown</div>
             <h2 class="section-title" data-i18n="countTitle">Counting the moments until the celebration</h2>
+            <p class="section-copy" style="margin-inline:auto;" data-i18n="countCopy">Set the exact wedding date in the script to automatically update the remaining months, days, and hours.</p>
           </div>
           <div class="countdown-wrap js-reveal">
             <article class="countdown-card">
@@ -1098,6 +1100,7 @@
               <div class="countdown-label" data-i18n="hours">Hours</div>
             </article>
           </div>
+          <p class="countdown-note" id="countdownMessage" style="text-align:center;">The countdown updates automatically.</p>
         </div>
       </section>
 
@@ -1119,6 +1122,7 @@
           <div class="fade-in" style="text-align:center;">
             <div class="eyebrow" style="justify-content:center;" data-i18n="locEyebrow">Locations</div>
             <h2 class="section-title" data-i18n="locTitle">Where to celebrate with us</h2>
+            <p class="section-copy" style="margin-inline:auto;" data-i18n="locCopy">This area includes separate placeholders for the ceremony and reception so guests can quickly identify both venues and arrival details.</p>
           </div>
           <div class="location-grid js-reveal">
             <article class="location-card">
@@ -1143,10 +1147,12 @@
           <div class="location-grid js-reveal" style="margin-top: var(--space-8);">
             <article class="location-card">
               <h3 data-i18n="ceremonyMap">Ceremony Map</h3>
+              <p data-i18n="mapHelp1">Update the <span class="code-inline">ceremonyMapUrl</span> value in the script to point to your actual Google Maps embed link.</p>
               <div class="map-frame"><iframe id="ceremonyMapFrame" title="Ceremony location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src=""></iframe></div>
             </article>
             <article class="location-card">
               <h3 data-i18n="receptionMap">Reception Map</h3>
+              <p data-i18n="mapHelp2">Update the <span class="code-inline">receptionMapUrl</span> value in the script for the reception venue map.</p>
               <div class="map-frame"><iframe id="receptionMapFrame" title="Reception location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src=""></iframe></div>
             </article>
           </div>
@@ -1158,7 +1164,8 @@
         <div class="container">
           <div class="fade-in" style="text-align:center;">
             <div class="eyebrow" style="justify-content:center;" data-i18n="galleryEyebrow">Photo gallery</div>
-            <h2 class="section-title" data-i18n="galleryTitle">Our Special Moments</h2>
+            <h2 class="section-title" data-i18n="galleryTitle">Moments you can replace with your own photos</h2>
+            <p class="section-copy" style="margin-inline:auto;" data-i18n="galleryCopy">Click any image to open it in a larger popup. Replace these sample photos with your actual engagement, pre-wedding, or portrait images later.</p>
           </div>
 
           <div class="gallery-grid js-reveal">
@@ -1186,15 +1193,18 @@
           <div class="fade-in" style="text-align:center;">
             <div class="eyebrow" style="justify-content:center;" data-i18n="qrEyebrow">Location QR codes</div>
             <h2 class="section-title" data-i18n="qrTitle">Quick scan for directions</h2>
+            <p class="section-copy" style="margin-inline:auto;" data-i18n="qrCopy">Replace these placeholder boxes with your actual QR images for the ceremony and reception locations.</p>
           </div>
           <div class="location-grid js-reveal" style="margin-top: var(--space-8);">
             <article class="location-card">
               <h3 data-i18n="ceremonyQr">Ceremony QR Code</h3>
-              <div class="qr-placeholder">ceremony QR code</div>
+              <div class="qr-placeholder">Add ceremony QR image here</div>
+              <p data-i18n="qrHint1">You can replace this box with an image tag pointing to your real QR code later.</p>
             </article>
             <article class="location-card">
               <h3 data-i18n="receptionQr">Reception QR Code</h3>
-              <div class="qr-placeholder">reception QR code</div>
+              <div class="qr-placeholder">Add reception QR image here</div>
+              <p data-i18n="qrHint2">Keep both QR codes in the same size for a cleaner final look.</p>
             </article>
           </div>
         </div>
@@ -1206,6 +1216,7 @@
             <div class="eyebrow" style="justify-content:center;" data-i18n="closeEyebrow">With love</div>
             <h3 data-i18n="closeTitle">Hoping to see you there</h3>
             <p data-i18n="closeCopy1">Thank you for being part of our journey. Your presence will mean so much to us as we celebrate this unforgettable day with the people we love most.</p>
+            <p data-i18n="closeCopy2">Please replace this closing note with your final thank-you message, RSVP details, or any personal sign-off you prefer.</p>
             <div class="signature">Gayatri &amp; Gokul</div>
           </div>
         </div>
@@ -1213,7 +1224,7 @@
     </main>
 
     <footer class="footer">
-      Contact us on 91*****
+      Wedding invitation website template with editable placeholders for names, dates, venues, events, and gallery images.
     </footer>
   </div>
 
