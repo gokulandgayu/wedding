@@ -481,7 +481,10 @@
         var(--hero-overlay),
         url('https://upload.wikimedia.org/wikipedia/commons/6/67/View_of_Sydney_harbour_and_the_Sydney_Opera_House%2C_Sydney_Harbour_Bridge_and_Sydney_skyline_with_ferry%27s_crossing_the_bay.jpg') center/cover no-repeat; 
       color: #fff8f2; */
-      background: url("./images/sydney.jpg") center center / cover no-repeat;
+      background: 
+        linear-gradient(135deg, rgba(255, 214, 170, 0.14), rgba(255, 173, 197, 0.16)),
+        var(--hero-overlay),
+        url("./images/sydney.jpg") center center / cover no-repeat;
       color: #fff8f2;
     }
     .hero::before {
@@ -494,7 +497,7 @@
     .hero-card {
       max-width: 820px;
       padding: clamp(var(--space-8), 4vw, var(--space-12));
-      background: color-mix(in srgb, rgba(69, 39, 28, 0.46) 82%, transparent);
+      background: color-mix(in srgb, rgba(69, 49, 38, 0.46) 82%, transparent);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 244, 232, 0.18);
       border-radius: var(--radius-xl);
