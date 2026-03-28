@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css)">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* Art direction: romantic wedding invitation → elegant, warm, cinematic
@@ -259,6 +260,24 @@
       box-shadow: var(--shadow-lg);
       overflow: hidden;
     }
+    #countdown {
+      animation: floatUp 3s ease-in-out infinite;
+    }
+
+    #countdown {
+      animation: glowPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 5px #f5b7b1, 0 0 15px #f1948a; }
+      50% { box-shadow: 0 0 20px #edbb99, 0 0 45px #f1948a; }
+    }
+
+    
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
     .envelope-back::before,
     .envelope-back::after {
       content: "";
@@ -271,6 +290,36 @@
       transform: rotate(45deg) translateY(42%);
       border-radius: var(--radius-md);
     }
+
+    #story p {
+      animation: textFloat 4s ease-in-out infinite;
+    }
+    @keyframes textFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+   
+    
+    .timeline-card {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .timeline-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .timeline-icon {
+      animation: moveDot 2s linear infinite;
+    }
+    
+    @keyframes moveDot {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
     .envelope-front {
       clip-path: polygon(0 100%, 0 40%, 50% 77%, 100% 40%, 100% 100%);
       background: linear-gradient(180deg, #ffd9cb, #f4bd9f);
@@ -843,6 +892,64 @@
       padding: var(--space-8);
       box-shadow: var(--shadow-md);
     }
+
+     body {
+      background: linear-gradient(to bottom, #fffafc 0%, #ffeef2 100%);
+      background-attachment: fixed;
+    }
+    
+    section {
+      background-image: url('[transparenttextures.com](https://www.transparenttextures.com/patterns/soft-wallpaper.png)');
+      background-repeat: repeat;
+    }
+    
+    #locations {
+      background: url('path/to/subtle-floral.png') center/cover no-repeat;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    #story {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+    
+    #story.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    .qr-box {
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 0.4s ease-out;
+    }
+    .qr-box.visible {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .qr-box:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
     .location-card h3 {
       font-family: var(--font-display);
       font-size: var(--text-xl);
@@ -1366,6 +1473,22 @@
     root.setAttribute('data-theme', activeTheme);
     const timeline = document.querySelector('.timeline');
     const items = document.querySelectorAll('.timeline-item');
+    const items = document.querySelectorAll('.timeline-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    items.forEach(card => observer.observe(card));
+
+    const qrBox = document.querySelector('.qr-box');
+    observer.observe(qrBox);
+
+    observer.observe(document.querySelector('#story'));
+
     
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
