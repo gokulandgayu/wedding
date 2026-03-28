@@ -988,7 +988,7 @@
 
     @media (max-width: 980px) {
    
-      .location-grid { justify-content: center !important; max-width: 560px !important; margin-inline: auto !important; }   .header-inner { grid-template-columns: 1fr; align-items: flex-start; }
+      .location-grid { grid-template-columns: 1fr !important; justify-content: center !important; max-width: 560px !important; margin-inline: auto !important; }   .header-inner { grid-template-columns: 1fr; align-items: flex-start; }
       .header-actions { justify-content: flex-start; }
       .invite-grid,
       .location-grid { grid-template-columns: 1fr; }
@@ -1180,7 +1180,7 @@
               </ul>
             </article>
           </div>
-          <div class="location-grid js-reveal" style="margin-top: var(--space-8); grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: start;">
+          <div class="location-grid js-reveal" style="margin-top: var(--space-8); grid-template-columns: minmax(0, 1fr); justify-content: center; max-width: 560px; margin-inline: auto;">
             <article class="location-card">
               <h3 data-i18n="receptionMap">Reception Map</h3>
               
