@@ -738,6 +738,20 @@
       transform: scale(1.06);
       opacity: 0.22;
     }
+
+    .invitation-letter-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--color-bg) 20%, transparent), color-mix(in srgb, var(--color-bg) 42%, transparent)),
+        /* url('https://picsum.photos/seed/temple-wedding-location/1600/1400') center/cover no-repeat; */
+        url("./images/bg-flowers.png") center center / cover no-repeat;
+        
+      filter: blur(0px);
+      transform: scale(1.06);
+      opacity: 0.22;
+    }
+    
     .location-grid {
       position: relative;
       display: grid;
@@ -1090,6 +1104,7 @@
       </section>
 
       <section class="section" id="story">
+        <div class="invitation-letter-bg" aria-hidden="true"></div>
         <div class="container invite-grid">
           <div class="fade-in">
             <div class="eyebrow" data-i18n="invEyebrow">Invitation note</div>
