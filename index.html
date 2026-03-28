@@ -767,27 +767,6 @@
       padding: var(--space-8);
       box-shadow: var(--shadow-md);
     }
-    .location-grid.single-location {
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-content: center;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    
-    .location-grid.single-location .location-card {
-      width: 100%;
-      margin: 0 auto;
-    }
-    .location-grid.map-single {
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-items: center;
-    }
-    
-    .location-grid.map-single .location-card {
-      margin: 0 auto;
-    }
     .location-card h3 {
       font-family: var(--font-display);
       font-size: var(--text-xl);
@@ -1188,7 +1167,7 @@
             <h2 class="section-title" data-i18n="locTitle">Where to celebrate with us</h2>
             
           </div>
-          <!-- <div class="location-grid js-reveal">
+          <div class="location-grid js-reveal">
             <article class="location-card">
               <h3 data-i18n="ceremonyTitle">Wedding Ceremony</h3>
               <p>Shree Lakshmi Temple, 123 Celebration Street, Your City, Your State.</p>
@@ -1199,50 +1178,25 @@
               </ul>
             </article>
             <article class="location-card">
-              <h3 data-i18n="receptionTitle">Wedding & Reception</h3>
+              <h3 data-i18n="receptionTitle">Reception</h3>
               <p>Vivaas Mahal, Udumalaipettai, Tamil Nadu, 642154, India</p>
               <ul>
                 <li>Time: 6:30 PM onwards</li>
-                <li>Landmark: Near Riverside Plaza</li>
-                <li>Dining and celebration to follow</li>
-              </ul>
-            </article>
-          </div> -->
-          <div class="location-grid js-reveal single-location">
-            <article class="location-card">
-              <h3 data-i18n="receptionTitle">Wedding & Reception</h3>
-              <p>Vivaas Mahal, Udumalaipettai, Tamil Nadu, 642154, India</p>
-              <ul>
-                <li>Time: 6:30 PM onwards</li>
+                <!-- <li>Landmark: Near Riverside Plaza</li>
+                <li>Dining and celebration to follow</li> -->
               </ul>
             </article>
           </div>
-          
-          <!-- <div class="location-grid js-reveal" style="margin-top: var(--space-8);">
+          <div class="location-grid js-reveal" style="margin-top: var(--space-8);">
             <article class="location-card">
               <h3 data-i18n="ceremonyMap">Ceremony Map</h3>
               
               <div class="map-frame"><iframe id="ceremonyMapFrame" title="Ceremony location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src=""></iframe></div>
             </article>
             <article class="location-card">
-              <h3 data-i18n="receptionMap">Wedding & Reception Map</h3>
+              <h3 data-i18n="receptionMap">Reception Map</h3>
               
               <div class="map-frame"><iframe id="receptionMapFrame" title="Reception location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src=""></iframe></div>
-            </article>
-          </div> -->
-
-          <div class="location-grid js-reveal map-single" style="margin-top: var(--space-8);">
-            <article class="location-card">
-              <h3 data-i18n="receptionMap">Wedding & Reception Map</h3>
-              <div class="map-frame">
-                <iframe
-                  id="receptionMapFrame"
-                  title="Reception location map"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  src="">
-                </iframe>
-              </div>
             </article>
           </div>
 
@@ -1290,11 +1244,11 @@
               <div class="qr-placeholder">ceremony QR code</div>
               
             </article>
-            <!-- <article class="location-card">
+            <article class="location-card">
               <h3 data-i18n="receptionQr">Reception QR Code</h3>
               <div class="qr-placeholder">reception QR code</div>
               
-            </article> -->
+            </article>
           </div>
         </div>
       </section>
@@ -1337,7 +1291,7 @@
         invEyebrow: 'Invitation note', invTitle: 'A heartfelt invitation for dear friends and family', invCopy: '', dearHeading: 'Dear friends and family,', dearCopy: 'We invite you to join us as we begin a beautiful new chapter together. Your presence, prayers, and blessings will make our wedding celebration even more special. Please save the date and come celebrate love, laughter, and togetherness with us.',
         countEyebrow: 'Countdown', countTitle: 'Counting the moments until the celebration', countCopy: '', months: 'Months', days: 'Days', hours: 'Hours',
         timelineEyebrow: 'Wedding schedule', timelineTitle: 'Timeline for the day', timelineCopy: '', timelineTip: '',
-        locEyebrow: 'Locations', locTitle: 'Where to celebrate with us', locCopy: '', ceremonyTitle: 'Wedding Ceremony', receptionTitle: 'Wedding & Reception', ceremonyMap: 'Ceremony Map', receptionMap: 'Wedding & Reception Map',
+        locEyebrow: 'Locations', locTitle: 'Where to celebrate with us', locCopy: '', ceremonyTitle: 'Wedding Ceremony', receptionTitle: 'Reception', ceremonyMap: 'Ceremony Map', receptionMap: 'Reception Map',
         galleryEyebrow: 'Photo gallery', galleryTitle: 'Our Special Moments', galleryCopy: '',
         qrEyebrow: 'Location QR codes', qrTitle: 'Quick scan for directions', qrCopy: '', ceremonyQr: 'Ceremony QR Code', receptionQr: 'Reception QR Code', qrHint1: '', qrHint2: '',
         mapHelp1: '', mapHelp2: '',
