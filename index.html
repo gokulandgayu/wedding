@@ -10,6 +10,7 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* Art direction: romantic wedding invitation → elegant, warm, cinematic
@@ -459,6 +460,81 @@
       font-size: var(--text-xs);
       text-transform: uppercase;
       letter-spacing: 0.24em;
+    }
+    .timeline-item {
+      transform: translateY(40px) scale(0.95);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    
+    .timeline-item.show {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    
+    /* moving line animation */
+    .timeline::before {
+      height: 0%;
+      transition: height 1.2s ease;
+    }
+    
+    .timeline.active::before {
+      height: 100%;
+    }
+    .location-card img {
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+
+    .location-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .location-card.show img {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(255,182,193,0.15), transparent 40%);
+      pointer-events: none;
+    }
+    .gallery-item {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.03) rotate(-0.5deg);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .js-reveal {
+      transform: translateY(50px) scale(0.98);
+    }
+    
+    /* masonry feel */
+    .gallery-grid {
+      grid-auto-flow: dense;
+    }
+    
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/flowers.png');
+      opacity: 0.08;
+    }
+    /* moving dot */
+    .timeline-item::before {
+      transform: scale(0);
+      transition: transform 0.4s ease;
+    }
+    
+    .timeline-item.show::before {
+      transform: scale(1);
     }
     .section-title {
       font-family: var(--font-display);
@@ -922,6 +998,27 @@
       transform: translateY(0);
     }
 
+    .countdown-card {
+      animation: floatCard 4s ease-in-out infinite;
+    }
+    
+    .countdown-card:nth-child(2) { animation-delay: 0.5s; }
+    .countdown-card:nth-child(3) { animation-delay: 1s; }
+    
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    
+    /* number flip effect */
+    .countdown-value {
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    
+    .countdown-value.update {
+      transform: translateY(-10px);
+      opacity: 0.5;
+    }
     .modal {
       position: fixed;
       inset: 0;
@@ -1076,11 +1173,11 @@
         </a>
 
         <nav class="nav-links" aria-label="Primary">
-          <a href="#story" data-i18n="navInvitation">Invitation</a>
-          <a href="#countdown" data-i18n="navCountdown">Countdown</a>
-          <a href="#timeline" data-i18n="navSchedule">Schedule</a>
-          <a href="#locations" data-i18n="navLocations">Locations</a>
-          <a href="#gallery" data-i18n="navGallery">Gallery</a>
+          <a href="#story"><i class="ri-heart-3-line"></i> Invitation</a>
+          <a href="#countdown"><i class="ri-time-line"></i> Countdown</a>
+          <a href="#timeline"><i class="ri-calendar-event-line"></i> Schedule</a>
+          <a href="#locations"><i class="ri-map-pin-line"></i> Locations</a>
+          <a href="#gallery"><i class="ri-image-line"></i> Gallery</a>
         </nav>
 
         <div class="header-actions">
@@ -1109,7 +1206,9 @@
         <div class="invitation-letter-bg" aria-hidden="true"></div>
         <div class="container invite-grid">
           <div class="fade-in">
-            <div class="eyebrow" data-i18n="invEyebrow">Invitation note</div>
+            <div class="eyebrow">
+              <i class="ri-sparkling-2-line"></i> Invitation note
+            </div>
             <h2 class="section-title" data-i18n="invTitle">A heartfelt invitation for dear friends and family</h2>
             
           </div>
@@ -1174,7 +1273,7 @@
               <h3 data-i18n="receptionTitle">Wedding & Reception</h3>
               <p>Vivaas Mahal, Udumalaipettai, Tamil Nadu, 642154, India</p>
               <ul>
-                <li>Time: 6:30 PM onwards</li>
+                <li><i class="ri-time-line"></i> Time: 6:30 PM onwards</li>
                 <!-- <li>Landmark: Near Riverside Plaza</li>
                 <li>Dining and celebration to follow</li> -->
               </ul>
@@ -1265,6 +1364,31 @@
     const themeToggle = document.querySelector('[data-theme-toggle]');
     let activeTheme = 'light';
     root.setAttribute('data-theme', activeTheme);
+    const timeline = document.querySelector('.timeline');
+    const items = document.querySelectorAll('.timeline-item');
+    
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          timeline.classList.add('active');
+        }
+      });
+    },{threshold:0.2});
+    
+    items.forEach(item => observer.observe(item));
+
+    const qrSection = document.querySelector('#qr-section .location-card');
+
+    const qrObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    },{threshold:0.3});
+    
+    qrObserver.observe(qrSection);
 
     const translations = {
       en: {
@@ -1310,6 +1434,16 @@
         const key = el.dataset.i18nHtml;
         if (translations[lang][key]) el.innerHTML = translations[lang][key];
       });
+    }
+
+    
+
+    function animateValue(el, newValue) {
+      el.classList.add("update");
+      setTimeout(() => {
+        el.textContent = newValue;
+        el.classList.remove("update");
+      }, 200);
     }
 
     function renderThemeIcon(theme) {
