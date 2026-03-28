@@ -780,6 +780,16 @@
       width: 100%;
       margin: 0 auto;
     }
+
+    .location-grid.map-single {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    
+    .location-grid.map-single .location-card {
+      margin: 0 auto;
+    }
     
     .location-card h3 {
       font-family: var(--font-display);
@@ -1211,7 +1221,7 @@
             </article>
           </div>
           
-          <div class="location-grid js-reveal" style="margin-top: var(--space-8);">
+          <!-- <div class="location-grid js-reveal" style="margin-top: var(--space-8);">
             <article class="location-card">
               <h3 data-i18n="ceremonyMap">Ceremony Map</h3>
               
@@ -1222,8 +1232,21 @@
               
               <div class="map-frame"><iframe id="receptionMapFrame" title="Reception location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src=""></iframe></div>
             </article>
-          </div>
-
+          </div> -->
+          <div class="location-grid js-reveal map-single" style="margin-top: var(--space-8);">
+            <article class="location-card">
+              <h3 data-i18n="receptionMap">Wedding & Reception Map</h3>
+              <div class="map-frame">
+                <iframe
+                  id="receptionMapFrame"
+                  title="Reception location map"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="">
+                </iframe>
+              </div>
+            </article>
+          </div>  
         </div>
       </section>
 
