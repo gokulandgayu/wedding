@@ -10,6 +10,7 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
   <style>
@@ -870,11 +871,25 @@
       opacity: 0.22;
     }
 
-    .invitation-letter-bg {
+    /* .invitation-letter-bg {
       position: absolute;
       inset: 0;
       overflow: hidden;
+    } */
+
+    .invitation-letter-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--color-bg) 20%, transparent), color-mix(in srgb, var(--color-bg) 42%, transparent)),
+        /* url('https://picsum.photos/seed/temple-wedding-location/1600/1400') center/cover no-repeat; */
+        url("./images/pink-bg.png") center center / cover no-repeat;
+        
+      filter: blur(0px);
+      transform: scale(1.06);
+      opacity: 0.22;
     }
+    
     .invitation-letter-bg::before {
       content: "";
       position: absolute;
@@ -1849,11 +1864,16 @@
         </a>
 
         <nav class="nav-links" aria-label="Primary">
-          <a href="#story" data-i18n="navInvitation"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Invitation</a>
+          <!-- <a href="#story" data-i18n="navInvitation"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Invitation</a>
           <a href="#countdown" data-i18n="navCountdown"><i class="fa-regular fa-clock" aria-hidden="true"></i> Countdown</a>
           <a href="#timeline" data-i18n="navSchedule"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Schedule</a>
           <a href="#locations" data-i18n="navLocations"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Locations</a>
-          <a href="#gallery" data-i18n="navGallery"><i class="fa-regular fa-images" aria-hidden="true"></i> Gallery</a>
+          <a href="#gallery" data-i18n="navGallery"><i class="fa-regular fa-images" aria-hidden="true"></i> Gallery</a> -->
+          <a href="#story"><i class="ri-heart-3-line"></i> Invitation</a>
+          <a href="#countdown"><i class="ri-time-line"></i> Countdown</a>
+          <a href="#timeline"><i class="ri-calendar-event-line"></i> Schedule</a>
+          <a href="#locations"><i class="ri-map-pin-line"></i> Locations</a>
+          <a href="#gallery"><i class="ri-image-line"></i> Gallery</a>
         </nav>
 
         <div class="header-actions">
