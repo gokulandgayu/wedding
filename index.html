@@ -376,15 +376,25 @@
       gap: var(--space-4);
     } */
 
-    .header-inner {
+    /* .header-inner {
       max-width: var(--content-wide);
       margin: 0 auto;
       padding: var(--space-4) var(--space-4);
       
       display: grid;
-      grid-template-columns: 1fr auto 1fr;  /* 👈 key change */
+      grid-template-columns: 1fr auto 1fr; 
       align-items: center;
+    } */
+     .header-inner {
+      max-width: var(--content-wide);
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-4);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: var(--space-4);
     }
+    
     .logo {
       display: inline-flex;
       align-items: center;
@@ -1903,36 +1913,17 @@
   </div>
 
   <div class="site-shell">
-    <header class="header" id="top">
+    <!-- <header class="header" id="top">
       <div class="header-inner">
         <a href="#hero" class="logo" aria-label="Go to top of invitation">
           <span class="logo-mark" aria-hidden="true">
-            <!-- <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M16 44C16 28.536 28.536 16 44 16" stroke="currentColor" stroke-width="4.4" stroke-linecap="round"/>
-              <path d="M20 48L32 20L44 48" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M32 20L32 48" stroke="currentColor" stroke-width="4.4" stroke-linecap="round"/>
-            </svg> -->
             <img src="images/gokul-logo-new.jpeg" alt="G&G seal" style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%;">
-            
           </span>
           <span class="logo-text">
             <strong>Gokul &amp; Gayathri</strong>
             <span>Wedding Day</span>
           </span>
         </a>
-
-        <!-- <nav class="nav-links" aria-label="Primary">
-          <a href="#story" data-i18n="navInvitation"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Invitation</a>
-          <a href="#countdown" data-i18n="navCountdown"><i class="fa-regular fa-clock" aria-hidden="true"></i> Countdown</a>
-          <a href="#timeline" data-i18n="navSchedule"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Schedule</a>
-          <a href="#locations" data-i18n="navLocations"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Locations</a>
-          <a href="#gallery" data-i18n="navGallery"><i class="fa-regular fa-images" aria-hidden="true"></i> Gallery</a>
-          <a href="#story"><i class="ri-heart-3-line"></i> Invitation</a>
-          <a href="#countdown"><i class="ri-time-line"></i> Countdown</a>
-          <a href="#timeline"><i class="ri-calendar-event-line"></i> Schedule</a>
-          <a href="#locations"><i class="ri-map-pin-line"></i> Locations</a>
-          <a href="#gallery"><i class="ri-image-line"></i> Gallery</a>
-        </nav> -->
 
         <div class="header-actions">
           <button class="theme-toggle" type="button" id="languageToggle" aria-label="Switch language to Tamil">தமிழ்</button>
@@ -1942,7 +1933,34 @@
           </svg>
         </button>
       </div>
-    </header>
+    </header> -->
+
+      <header class="header" id="top">
+        <div class="header-inner">
+    
+          <div></div> <!-- left spacer -->
+    
+          <a href="#hero" class="logo" aria-label="Go to top of invitation">
+            <span class="logo-mark" aria-hidden="true">
+              <img src="images/gokul-logo-new.jpeg" alt="G&G seal" style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%;">
+            </span>
+            <span class="logo-text">
+              <strong>Gokul &amp; Gayathri</strong>
+              <span>Wedding Day</span>
+            </span>
+          </a>
+    
+          <div class="header-actions" style="justify-content: flex-end;">
+            <button class="theme-toggle" type="button" id="languageToggle" aria-label="Switch language to Tamil">தமிழ்</button>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </button>
+          </div>
+    
+        </div>
+      </header>
 
     <main id="main-content">
       <section class="section hero" id="hero">
