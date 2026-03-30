@@ -2446,10 +2446,28 @@
     setInterval(updateCountdown, 60 * 1000);
 
     /* ── Timeline ── */
+    // const scheduleEvents = [
+    //   {
+    //     date: '16 Sep 2026',
+    //     // icon: '🎉',
+    //     title: 'Reception',
+    //     description: 'Wednesday, 6.30PM onwards',
+    //     taTitle: 'விருந்து',
+    //     taDescription: 'புதன்கிழமை, மாலை 6.30 மணி முதல்'
+    //   },
+    //   {
+    //     date: '17 Sep 2026',
+    //     // icon: '💍',
+    //     title: 'Wedding (Muhurtham)',
+    //     description: 'Thursday, 8.30AM to 9.30AM',
+    //     taTitle: 'திருமண நிகழ்வு',
+    //     taDescription: 'வியாழக்கிழமை, காலை 8.30 மணி முதல் 9.30 மணி வரை'
+    //   }
+    // ];
     const scheduleEvents = [
       {
         date: '16 Sep 2026',
-        // icon: '🎉',
+        image: './images/reception-image.png', // your image path
         title: 'Reception',
         description: 'Wednesday, 6.30PM onwards',
         taTitle: 'விருந்து',
@@ -2457,13 +2475,14 @@
       },
       {
         date: '17 Sep 2026',
-        // icon: '💍',
+        image: './images/wedding-image.png', // your image path
         title: 'Wedding (Muhurtham)',
         description: 'Thursday, 8.30AM to 9.30AM',
         taTitle: 'திருமண நிகழ்வு',
         taDescription: 'வியாழக்கிழமை, காலை 8.30 மணி முதல் 9.30 மணி வரை'
       }
     ];
+
 
     const timelineList = document.getElementById('timelineList');
     function renderTimeline(events) {
