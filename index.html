@@ -250,10 +250,27 @@
     .envelope-back,
     .envelope-front,
     .envelope-flap,
-    .letter {
+    /* .letter {
       position: absolute;
       inset: 0;
       border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    } */
+    .letter {
+      inset: 10% 8% 10%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,244,245,0.98)),
+        repeating-linear-gradient(180deg, rgba(139,94,91,0.05), rgba(139,94,91,0.05) 1px, transparent 1px, transparent 18px);
+      border-radius: var(--radius-md);
+      padding: var(--space-10) var(--space-6) var(--space-8);
+      box-shadow: 0 18px 35px rgba(58, 37, 28, 0.12);
+      transform: translateY(20%) scale(0.96);
+      z-index: 4;
+      display: flex;              /* change grid to flex */
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;  /* push content to bottom */
+      text-align: center;
+      transition: transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
     }
     .envelope-back {
       background: linear-gradient(180deg, #ffd7c3, #f0b797);
