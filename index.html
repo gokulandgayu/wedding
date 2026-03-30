@@ -554,7 +554,7 @@
     }
     .hero::before {
       content: "";
-      position: absolute;
+      position: relative;
       inset: 0;
       background: radial-gradient(circle at 15% 15%, rgba(255, 235, 215, 0.18), transparent 26%);
       pointer-events: none;
@@ -581,6 +581,7 @@
     .hero .container {
       width: 100%;
       max-width: 100%;
+      position: relative;
       padding-inline: clamp(var(--space-8), 6vw, var(--space-24));
     }
     .hero-date {
@@ -2448,7 +2449,7 @@
     const scheduleEvents = [
       {
         date: '16 Sep 2026',
-        icon: '🎉',
+        // icon: '🎉',
         title: 'Reception',
         description: 'Wednesday, 6.30PM onwards',
         taTitle: 'விருந்து',
@@ -2456,7 +2457,7 @@
       },
       {
         date: '17 Sep 2026',
-        icon: '💍',
+        // icon: '💍',
         title: 'Wedding (Muhurtham)',
         description: 'Thursday, 8.30AM to 9.30AM',
         taTitle: 'திருமண நிகழ்வு',
