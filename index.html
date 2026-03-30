@@ -554,7 +554,7 @@
     }
     .hero::before {
       content: "";
-      position: relative;
+      position: absolute;
       inset: 0;
       background: radial-gradient(circle at 15% 15%, rgba(255, 235, 215, 0.18), transparent 26%);
       pointer-events: none;
@@ -894,13 +894,60 @@
       width: 2px;
       background: linear-gradient(180deg, var(--color-primary), rgba(139,94,91,0.16));
     }
-    .timeline-item {
+    /* .timeline-item {
       position: relative;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: var(--space-5) var(--space-6);
       box-shadow: var(--shadow-sm);
+    } */
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .timeline-item-image {
+      flex-shrink: 0;
+      width: 110px;
+      height: 110px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .timeline-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    
+    .timeline-item:hover .timeline-item-image img {
+      transform: scale(1.07);
+    }
+    
+    .timeline-item-content {
+      flex: 1;
+      padding: var(--space-5) var(--space-5) var(--space-5) 0;
+    }
+    
+    /* Mobile — stack image on top of text */
+    @media (max-width: 500px) {
+      .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .timeline-item-image {
+        width: 100%;
+        height: 160px;
+      }
+      .timeline-item-content {
+        padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
+      }
     }
     .timeline-item::before {
       content: "";
@@ -2485,21 +2532,43 @@
 
 
     const timelineList = document.getElementById('timelineList');
+    // function renderTimeline(events) {
+    //   timelineList.innerHTML = events.map(event => `
+    //     <article class="timeline-item">
+    //       <div class="timeline-event-icon" aria-hidden="true">${event.icon}</div>
+    //       <div class="timeline-date">${event.date}</div>
+    //       <h3 class="timeline-title">${currentLanguage === 'ta' ? (event.taTitle || event.title) : event.title}</h3>
+    //       <p class="timeline-desc">${currentLanguage === 'ta' ? (event.taDescription || event.description) : event.description}</p>
+    //     </article>
+    //   `).join('');
+    //   /* Re-observe new timeline items */
+    //   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    //     document.querySelectorAll('.timeline-item').forEach((item, i) => {
+    //       setTimeout(() => {
+    //         timelineObserver.observe(item);
+    //       }, i * 80);
+    //     });
+    //   } else {
+    //     document.querySelectorAll('.timeline-item').forEach(item => item.classList.add('tl-visible'));
+    //   }
+    // }
     function renderTimeline(events) {
       timelineList.innerHTML = events.map(event => `
         <article class="timeline-item">
-          <div class="timeline-event-icon" aria-hidden="true">${event.icon}</div>
-          <div class="timeline-date">${event.date}</div>
-          <h3 class="timeline-title">${currentLanguage === 'ta' ? (event.taTitle || event.title) : event.title}</h3>
-          <p class="timeline-desc">${currentLanguage === 'ta' ? (event.taDescription || event.description) : event.description}</p>
+          <div class="timeline-item-image">
+            <img src="${event.image}" alt="${event.title}">
+          </div>
+          <div class="timeline-item-content">
+            <div class="timeline-date">${event.date}</div>
+            <h3 class="timeline-title">${currentLanguage === 'ta' ? (event.taTitle || event.title) : event.title}</h3>
+            <p class="timeline-desc">${currentLanguage === 'ta' ? (event.taDescription || event.description) : event.description}</p>
+          </div>
         </article>
       `).join('');
-      /* Re-observe new timeline items */
+    
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.querySelectorAll('.timeline-item').forEach((item, i) => {
-          setTimeout(() => {
-            timelineObserver.observe(item);
-          }, i * 80);
+          setTimeout(() => { timelineObserver.observe(item); }, i * 80);
         });
       } else {
         document.querySelectorAll('.timeline-item').forEach(item => item.classList.add('tl-visible'));
