@@ -640,7 +640,7 @@
       color: var(--color-primary-active);
     }
     .hero-card .hero-name-amp { color: var(--color-accent) !important; }
-    .hero-card p { color: var(--color-text-muted); }
+    .hero-card p { color: var(--color-text); font-weight: 500; }
     .hero-card .hero-scroll { color: var(--color-text-muted); }
     .hero-card .hero-scroll::before { background: rgba(100, 55, 40, 0.4); }
     .hero-card .hero-icon-badge { color: var(--color-text-muted); }
@@ -2095,6 +2095,48 @@
     }
 
 
+    /* Download invitation button */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+      padding: var(--space-3) var(--space-6);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-active));
+      color: #fff8f2;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: var(--radius-full);
+      border: none;
+      box-shadow: 0 6px 22px rgba(192, 92, 122, 0.38), inset 0 1px 0 rgba(255,255,255,0.15);
+      transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn-download::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+      background-size: 250% 100%;
+      animation: btnShimmer 3s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes btnShimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .btn-download:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 32px rgba(192, 92, 122, 0.48), inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+    .btn-download:active { transform: translateY(0) scale(0.98); }
+
     .ornament-row {
       display: flex;
       align-items: center;
@@ -2289,7 +2331,13 @@
               <span class="hero-icon-badge"><i class="fa-solid fa-star-and-crescent"></i> Blessed Union</span>
               <span class="hero-icon-badge"><i class="fa-solid fa-champagne-glasses"></i> Reception &amp; Dinner</span>
             </div>
-            <a class="hero-scroll" href="#story" data-i18n="heroScroll">Scroll to begin</a>
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-5); margin-top:var(--space-6);">
+              <a class="hero-scroll" href="#story" data-i18n="heroScroll">Scroll to begin</a>
+              <a class="btn-download" href="./images/invitation-card.jpeg" download="Gokul_Gayathri_Wedding_Invitation.png" aria-label="Download wedding invitation">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Invitation
+              </a>
+            </div>
           </div>
         </div>
       </section>
