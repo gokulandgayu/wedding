@@ -520,6 +520,7 @@
       padding: clamp(var(--space-16), 10vw, var(--space-24)) var(--space-4);
       position: relative;
     }
+    .hero .container { position: relative; z-index: 2; }
     .container {
       max-width: var(--content-default);
       margin: 0 auto;
@@ -555,9 +556,8 @@
       padding-top: 150px;
       padding-bottom: clamp(var(--space-8), 5vw, var(--space-16));
       background: 
-        linear-gradient(160deg, rgba(120, 40, 70, 0.32) 0%, rgba(40, 20, 10, 0.18) 40%, rgba(80, 30, 50, 0.38) 100%),
-        var(--hero-overlay),
-        url("https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1800&q=85&fit=crop&crop=center") center center / cover no-repeat;
+        linear-gradient(170deg, rgba(20, 8, 18, 0.62) 0%, rgba(60, 15, 35, 0.48) 35%, rgba(10, 5, 15, 0.75) 100%),
+        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=85&fit=crop&crop=center") center center / cover no-repeat;
       color: #fff8f2;
     }
 
@@ -586,8 +586,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 15% 15%, rgba(255, 235, 215, 0.18), transparent 26%);
+      background: 
+        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(192, 92, 122, 0.22), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 10% 90%, rgba(239, 174, 79, 0.15), transparent 50%);
       pointer-events: none;
+      z-index: 1;
     }
     .hero-card {
       max-width: 820px;
@@ -599,18 +602,33 @@
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-lg), 0 0 60px rgba(192, 92, 122, 0.18), inset 0 1px 0 rgba(255,255,255,0.6);
       color: var(--color-text);
+      animation: heroCardEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
     }
-    /* Decorative floral watermark corners inside hero card */
-    .hero-card::before {
-      content: "❀";
+    @keyframes heroCardEntrance {
+      from { opacity: 0; transform: translateY(32px) scale(0.97); filter: blur(3px); }
+      to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+
+    /* Floating petals inside hero card */
+    .hero-petal {
       position: absolute;
-      top: var(--space-4);
-      right: var(--space-5);
-      font-size: 5rem;
-      color: var(--color-primary);
-      opacity: 0.07;
       pointer-events: none;
-      line-height: 1;
+      font-size: 1.1rem;
+      opacity: 0;
+      animation: petalFloat linear infinite;
+      z-index: 0;
+    }
+    .hero-petal:nth-child(1)  { left: 8%;  animation-duration: 7s;  animation-delay: 0.5s;  font-size: 0.9rem; }
+    .hero-petal:nth-child(2)  { left: 22%; animation-duration: 9s;  animation-delay: 2s;    font-size: 1.2rem; }
+    .hero-petal:nth-child(3)  { left: 42%; animation-duration: 6.5s; animation-delay: 0.8s; font-size: 0.8rem; }
+    .hero-petal:nth-child(4)  { left: 60%; animation-duration: 8s;  animation-delay: 3s;    font-size: 1rem;   }
+    .hero-petal:nth-child(5)  { left: 78%; animation-duration: 7.5s; animation-delay: 1.2s; font-size: 0.85rem; }
+    .hero-petal:nth-child(6)  { left: 88%; animation-duration: 6s;  animation-delay: 4s;    font-size: 1.1rem; }
+    @keyframes petalFloat {
+      0%   { opacity: 0;   transform: translateY(100%) rotate(0deg)   scale(0.7); }
+      10%  { opacity: 0.55; }
+      85%  { opacity: 0.4; }
+      100% { opacity: 0;   transform: translateY(-20px) rotate(200deg) scale(1.1); }
     }
     /* Override hero text color for light card */
     .hero-card .hero-date {
@@ -1978,6 +1996,23 @@
     /* ══════════════════════════════════════════
        HOW TO REACH SECTION
     ══════════════════════════════════════════ */
+    .reach-section {
+      overflow: hidden;
+      position: relative;
+    }
+    .reach-bg {
+      position: absolute;
+      inset: 0;
+      /* Warm bokeh / festive lights — no people, purely scenic */
+      background:
+        linear-gradient(160deg,
+          color-mix(in srgb, var(--color-bg) 18%, transparent) 0%,
+          color-mix(in srgb, var(--color-bg) 38%, transparent) 100%),
+        url("https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=1600&q=80&fit=crop&crop=center") center center / cover no-repeat;
+      filter: blur(1px) saturate(0.75);
+      transform: scale(1.05);
+      opacity: 0.22;
+    }
     .reach-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -2227,6 +2262,13 @@
       <section class="section hero" id="hero">
         <div class="container">
           <div class="hero-card js-reveal is-visible">
+            <!-- Floating petals -->
+            <span class="hero-petal" aria-hidden="true">🌸</span>
+            <span class="hero-petal" aria-hidden="true">✿</span>
+            <span class="hero-petal" aria-hidden="true">🌺</span>
+            <span class="hero-petal" aria-hidden="true">❀</span>
+            <span class="hero-petal" aria-hidden="true">🌸</span>
+            <span class="hero-petal" aria-hidden="true">✿</span>
             <!-- Decorative corner brackets -->
             <span class="hero-corner hero-corner--tl" aria-hidden="true"></span>
             <span class="hero-corner hero-corner--tr" aria-hidden="true"></span>
@@ -2357,7 +2399,7 @@
             <article class="countdown-card">
               <div class="countdown-dots" aria-hidden="true"></div>
               <div class="countdown-icon" aria-hidden="true">
-                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4c5.svg" alt="calendar" width="36" height="36" style="display:block;margin:0 auto;">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f338.svg" alt="blossom" width="28" height="28" style="display:block;margin:0 auto;">
               </div>
               <div class="countdown-value" id="months">00</div>
               <div class="countdown-label" data-i18n="months">Months</div>
@@ -2365,7 +2407,7 @@
             <article class="countdown-card">
               <div class="countdown-dots" aria-hidden="true"></div>
               <div class="countdown-icon" aria-hidden="true">
-                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f33a.svg" alt="flower" width="36" height="36" style="display:block;margin:0 auto;">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2764.svg" alt="heart" width="28" height="28" style="display:block;margin:0 auto;">
               </div>
               <div class="countdown-value" id="days">00</div>
               <div class="countdown-label" data-i18n="days">Days</div>
@@ -2373,7 +2415,7 @@
             <article class="countdown-card">
               <div class="countdown-dots" aria-hidden="true"></div>
               <div class="countdown-icon" aria-hidden="true">
-                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/231a.svg" alt="clock" width="36" height="36" style="display:block;margin:0 auto;">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/23f3.svg" alt="hourglass" width="28" height="28" style="display:block;margin:0 auto;">
               </div>
               <div class="countdown-value" id="hours">00</div>
               <div class="countdown-label" data-i18n="hours">Hours</div>
@@ -2420,8 +2462,8 @@
         </div>
       </section>
 
-      <section class="section location-section" id="how-to-reach">
-        <div class="location-bg" aria-hidden="true"></div>
+      <section class="section reach-section" id="how-to-reach">
+        <div class="reach-bg" aria-hidden="true"></div>
         <div class="container">
           <div class="fade-in" style="text-align:center;">
             <div class="eyebrow" style="justify-content:center;"><i class="fa-solid fa-route"></i> Getting Here</div>
@@ -2448,7 +2490,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f697.svg" alt="Car" width="44" height="44">
               </div>
               <div class="reach-content">
-                <h3 class="reach-title">By Car / Grab</h3>
+                <h3 class="reach-title">By Car / Uber</h3>
                 <p>Use the following address for navigation:</p>
                 <p style="margin-top:0.5rem; font-family: var(--font-display); font-size: 1.05rem; color: var(--color-primary-active);">
                   Vivaas Mahal, Udumalaipettai, Tamil Nadu, 642154, India
